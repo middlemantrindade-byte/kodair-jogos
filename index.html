@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogos Unblocked</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #eef; margin:0; padding:0; }
+  header { background: #3a78d7; color: white; padding: 15px; text-align: center; }
+  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 10px; }
+  button { padding: 10px 15px; cursor: pointer; border: none; border-radius: 6px; background: #467fcf; color: white; font-size: 14px; }
+  iframe { width: 100%; height: 80vh; border: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Jogos para Escola (Unblocked)</h1>
+</header>
+
+<nav>
+  <button onclick="tryIframe('https://kodair.us/Minecraft/EagleCraft/1.8-U50.html')">EagleCraft</button>
+  <button onclick="tryIframe('https://duck.geometrystudy.com/')">Duck Game</button>
+  <button onclick="tryIframe('https://bottomofthe9th.org/index.html')">Bottom of the 9th</button>
+</nav>
+
+<iframe id="gameFrame" src=""></iframe>
+
+<script>
+function tryIframe(url) {
+  // tenta carregar no iframe
+  var frame = document.getElementById('gameFrame');
+  frame.src = url;
+
+  // Se quiser forçar abrir no mesmo lugar (quando bloqueado), use:
+  setTimeout(function(){
+    try {
+      if(frame.contentWindow.location.href === "about:blank" ||
+         frame.contentWindow.location.href.indexOf(location.hostname) === -1) {
+        window.location = url;
+      }
+    } catch(e) {
+      // Se houver um erro ao acessar o iframe, abrir diretamente
+      window.location = url;
+    }
+  }, 1500);
+}
+</script>
+
+</body>
+</html>
+```
